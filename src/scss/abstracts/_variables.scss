@@ -1,0 +1,58 @@
+@use "./functions" as f;
+
+:root {
+    // Colors
+
+    // base
+    --purple: hsl(277, 91%, 56%);
+    --dark-navy: hsl(216, 25%, 25%);
+    --navy: hsl(215, 27%, 32%);
+    --grey-navy: hsl(219, 13%, 44%);
+    --light-bluish: hsl(216, 46%, 78%);
+    --light-grey: hsl(220, 37%, 97%);
+    --pure-white: hsl(0, 0%, 100%);
+    --green: hsl(151, 70%, 50%);
+    --red: hsl(0, 82%, 63%);
+
+    --red-light: hsl(22, 100%, 96%);
+    --green-light: hsl(151, 88%, 94%);
+    --blue-light: hsl(225, 100%, 96%);
+    --purple-light: hsl(278, 100%, 95%);
+
+
+    // naming colors
+    --Electric-Violet: var(--purple);
+    --Pickled-Bluewood: var(--dark-navy);
+    --Fiord: var(--navy);
+    --Shuttle-Gray: var(--grey-navy);
+    --Periwinkle-Gray: var(--light-bluish);
+    --Catskill-White: var(--light-grey);
+    --White: var(--pure-white);
+    --Shamrock: var(--green);
+    --Burnt-Sienna: var(--red);
+
+    // fonts
+
+    --ff: 'Rubik', sans-serif;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+
+    // desktop
+    --fs-body: #{f.rem(18)};
+    --fs-xsmall: #{f.rem(20)};
+    --fs-small: #{f.rem(24)};
+    --fs-medium: #{f.rem(28)};
+    --fs-large: #{f.rem(36)};
+    --fs-xlarge: #{f.rem(64)};
+    --fs-2xlarge: #{f.rem(144)};
+
+    // mobile
+    --fs-m-body: #{f.rem(12)};
+    --fs-m-xsmall: #{f.rem(14)};
+    --fs-m-small: #{f.rem(16)};
+    --fs-m-medium: #{f.rem(18)};
+    --fs-m-large: #{f.rem(20)};
+    --fs-m-xlarge: #{f.rem(40)};
+    --fs-m-2xlarge: #{f.rem(88)};
+}

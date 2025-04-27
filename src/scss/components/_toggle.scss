@@ -1,0 +1,83 @@
+@use '../abstracts' as a;
+
+.toggle-container {
+    @include a.flexbox($align: center, $justify: flex-end, $gap: a.rem(8));
+    padding-block-start: a.rem(40);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: a.rem(45);
+    height: a.rem(24);
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--grey-navy);
+    -webkit-transition: .4s;
+    transition: .4s;
+
+
+
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: a.rem(18);
+    width: a.rem(18);
+    left: a.rem(3);
+    bottom: a.rem(3);
+    background-color: var(--pure-white);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:hover::before {
+    background-color: var(--Fiord);
+}
+
+input[type="checkbox"]:not(:checked)+.slider {
+    background-color: var(--Shuttle-Gray);
+
+    &:hover {
+        background-color: var(--light-grey);
+    }
+}
+
+input:checked+.slider {
+    background-color: var(--purple);
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px var(--purple);
+}
+
+input:checked+.slider::before {
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+
+
+}
+
+.slider.round::before {
+    border-radius: 50%;
+}

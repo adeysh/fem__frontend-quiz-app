@@ -1,0 +1,19 @@
+@use '../abstracts' as a;
+
+body {
+    font-family: var(--ff);
+    font-weight: var(--fw-regular);
+    background-image: url(/assets/images/pattern-background-mobile-dark.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--Pickled-Bluewood);
+    color: var(--White);
+}
+
+.bold {
+    font-weight: var(--fw-medium);
+}
+
+h1 {
+    margin: 0;
+}
