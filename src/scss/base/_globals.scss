@@ -1,13 +1,25 @@
 @use '../abstracts' as a;
 
+html {
+    min-height: 100vh;
+}
+
 body {
+    @include a.flexbox($direction: column, $align: center, $justify: center);
     font-family: var(--ff);
     font-weight: var(--fw-regular);
-    background-image: url(/assets/images/pattern-background-mobile-dark.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: var(--Pickled-Bluewood);
+    background: url(/assets/images/pattern-background-mobile-dark.svg) center left / 100% 100% no-repeat var(--Pickled-Bluewood);
     color: var(--White);
+    min-height: 100vh;
+
+    @include a.bp($from: "tablet") {
+        background-image: url(/assets/images/pattern-background-tablet-dark.svg);
+    }
+
+    @include a.bp($from: "desktop") {
+
+        background-image: url(/assets/images/pattern-background-desktop-dark.svg);
+    }
 }
 
 .bold {
@@ -16,4 +28,21 @@ body {
 
 h1 {
     margin: 0;
+}
+
+.hide {
+    display: none;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }

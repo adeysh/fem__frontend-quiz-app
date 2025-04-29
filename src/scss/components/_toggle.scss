@@ -2,7 +2,6 @@
 
 .toggle-container {
     @include a.flexbox($align: center, $justify: flex-end, $gap: a.rem(8));
-    padding-block-start: a.rem(40);
 }
 
 .switch {

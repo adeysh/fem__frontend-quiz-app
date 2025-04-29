@@ -1,5 +1,15 @@
 @use '../abstracts' as a;
 
+.quiz-header {
+    @include a.flexbox($align: center, $justify: space-between);
+}
+
 .quiz__subject-heading-container {
-    display: none;
+    @include a.flexbox($align: center, $gap: a.rem(16));
+
+    img {
+        border-radius: a.rem(6);
+        width: a.rem(40);
+        padding: a.rem(5.8);
+    }
 }

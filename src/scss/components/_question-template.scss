@@ -1,0 +1,106 @@
+@use '../abstracts' as a;
+
+.quiz__question-header {
+    @include a.flexbox($direction: column, $gap: a.rem(12));
+    margin-block-end: a.rem(24);
+
+    .quiz__question-count {
+        font-size: var(--fs-m-xsmall);
+        font-style: italic;
+        color: var(--Periwinkle-Gray);
+        font-weight: var(--fw-regular);
+    }
+
+    .quiz__question {
+        color: var(--White);
+        font-size: var(--fs-m-large);
+        font-weight: var(--fw-medium);
+    }
+}
+
+.quiz__progress-bar {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: a.rem(16);
+    margin-block-end: a.rem(40);
+
+
+    &::-webkit-progress-bar {
+        background-color: var(--Fiord);
+        border-radius: a.rem(10);
+        padding: a.rem(4);
+    }
+
+    &::-webkit-progress-value {
+        background-color: var(--Electric-Violet);
+        max-height: a.rem(8);
+        border-radius: a.rem(10);
+    }
+}
+
+.quiz__choices-form {
+    line-height: 1;
+    @include a.flexbox($direction: column, $gap: a.rem(12));
+    color: var(--White);
+    font-size: var(--fs-m-medium);
+    font-weight: var(--fw-medium);
+}
+
+.quiz__choice-label {
+    border: 1.5px solid transparent;
+    background-color: var(--Fiord);
+    min-width: 0;
+    @include a.flexbox($align: center, $gap: a.rem(16));
+    border-radius: a.rem(12);
+    transition: 0.2s ease-in-out;
+
+
+    &:active,
+    &:hover,
+    &:focus {
+        border: 1.5px solid var(--purple);
+
+
+        .quiz__choice-option {
+            color: var(--Electric-Violet);
+            background-color: var(--purple-light);
+        }
+    }
+}
+
+.quiz__choice-option {
+    background-color: var(--Catskill-White);
+    color: var(--Shuttle-Gray);
+    border-radius: a.rem(6);
+    margin-block: a.rem(12);
+    margin-inline-start: a.rem(12);
+    width: a.rem(40);
+    padding-block: a.rem(11);
+    padding-inline: a.rem(14);
+}
+
+.quiz__submit-btn {
+    font-size: a.rem(18);
+    line-height: 1;
+    padding-block: a.rem(18);
+    border: 1.5px solid transparent;
+    background-color: var(--Electric-Violet);
+    color: var(--White);
+    border-radius: a.rem(12);
+    transition: 0.2s ease-in-out;
+
+    &:active,
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        border: 1.5px solid var(--Electric-Violet);
+        background-color: var(--purple-dark);
+    }
+}
+
+.quiz__error {
+    @include a.flexbox($align: center, $justify: center, $gap: a.rem(12));
+    font-size: var(--fs-m-medium);
+    visibility: hidden;
+}

@@ -7,6 +7,11 @@
     color: var(--White);
     font-size: var(--fs-m-medium);
     font-weight: var(--fw-medium);
+
+    @include a.bp($from: "desktop") {
+        margin-block-start: 0;
+    }
+
 }
 
 .quiz__subject-label {
@@ -16,10 +21,6 @@
     border-radius: a.rem(12);
     transition: 0.2s ease-in-out;
     border: 1.5px solid transparent;
-
-    input[type="radio"] {
-        display: none;
-    }
 
     img {
         margin: a.rem(12);

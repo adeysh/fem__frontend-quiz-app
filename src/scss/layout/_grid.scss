@@ -1,0 +1,60 @@
+@use '../abstracts' as a;
+
+.quiz--intro-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "intro"
+        "subjects-form";
+    gap: 0 clamp(2rem, -28rem + 40vw, 8rem);
+
+    &__intro {
+        grid-area: intro;
+    }
+
+    &__subjects-form {
+        grid-area: subjects-form;
+    }
+
+    @include a.bp($from: "desktop") {
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "intro subjects-form"
+            "intro subjects-form";
+
+    }
+}
+
+.quiz--question-template-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "question-header"
+        "progress-bar"
+        "choices-form";
+    gap: 0 clamp(2rem, -28rem + 40vw, 8rem);
+
+
+    .quiz__question-header {
+        grid-area: question-header;
+    }
+
+    .quiz__progress-bar {
+        grid-area: progress-bar;
+    }
+
+    .quiz__choices-form {
+        grid-area: choices-form;
+    }
+
+    @include a.bp($from: "desktop") {
+
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "question-header choices-form"
+            "progress-bar choices-form";
+    }
+}
