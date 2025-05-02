@@ -34,26 +34,44 @@
 
     // Fonts
 
+    // font-family
     --ff: 'Rubik', sans-serif;
+
+    // font-weight
     --fw-light: 300;
     --fw-regular: 400;
     --fw-medium: 500;
 
     // desktop
-    --fs-body: #{f.rem(18)};
-    --fs-xsmall: #{f.rem(20)};
-    --fs-small: #{f.rem(24)};
-    --fs-medium: #{f.rem(28)};
-    --fs-large: #{f.rem(36)};
-    --fs-xlarge: #{f.rem(64)};
-    --fs-2xlarge: #{f.rem(144)};
+    // --fs-body: #{f.rem(18)};
+    // --fs-xsmall: #{f.rem(20)};
+    // --fs-small: #{f.rem(24)};
+    // --fs-medium: #{f.rem(28)};
+    // --fs-large: #{f.rem(36)};
+    // --fs-xlarge: #{f.rem(64)};
+    // --fs-2xlarge: #{f.rem(144)};
 
-    // mobile
-    --fs-m-body: #{f.rem(12)};
-    --fs-m-xsmall: #{f.rem(14)};
-    --fs-m-small: #{f.rem(16)};
-    --fs-m-medium: #{f.rem(18)};
-    --fs-m-large: #{f.rem(20)};
-    --fs-m-xlarge: #{f.rem(40)};
-    --fs-m-2xlarge: #{f.rem(88)};
+    // // mobile
+    // --fs-m-body: #{f.rem(12)};
+    // --fs-m-xsmall: #{f.rem(14)};
+    // --fs-m-small: #{f.rem(16)};
+    // --fs-m-medium: #{f.rem(18)};
+    // --fs-m-large: #{f.rem(20)};
+    // --fs-m-xlarge: #{f.rem(40)};
+    // --fs-m-2xlarge: #{f.rem(88)};
+
+    // font-sizes
+    --fs-body: clamp(0.75rem, 0.6428571428571428rem + 0.5357142857142857vw, 1.125rem);
+
+    --fs-xsmall: clamp(0.875rem, 0.7678571428571428rem + 0.5357142857142857vw, 1.25rem);
+
+    --fs-small: clamp(1rem, 0.8571428571428572rem + 0.7142857142857143vw, 1.5rem);
+
+    --fs-medium: clamp(1.125rem, 0.9464285714285714rem + 0.8928571428571428vw, 1.75rem);
+
+    --fs-large: clamp(1.25rem, 0.9642857142857143rem + 1.4285714285714286vw, 2.25rem);
+
+    --fs-xlarge: clamp(2.5rem, 2.357142857142857rem + 0.7142857142857143vw, 3rem);
+
+    --fs-2xlarge: clamp(5.5rem, 4.5rem + 5vw, 9rem);
 }

@@ -3,9 +3,9 @@
 .quiz__subjects-form {
     margin-block-start: a.rem(40);
     line-height: 1;
-    @include a.flexbox($direction: column, $gap: a.rem(12));
+    @include a.flexbox($direction: column, $gap: clamp(0.75rem, 0.0344rem + 3.0534vw, 1.5rem));
     color: var(--White);
-    font-size: var(--fs-m-medium);
+    font-size: var(--fs-medium);
     font-weight: var(--fw-medium);
 
     @include a.bp($from: "desktop") {

@@ -2,6 +2,11 @@
 
 .toggle-container {
     @include a.flexbox($align: center, $justify: flex-end, $gap: a.rem(8));
+
+    svg {
+        width: clamp(1rem, 0.5229rem + 2.0356vw, 1.5rem);
+        height: clamp(1rem, 0.5229rem + 2.0356vw, 1.5rem);
+    }
 }
 
 .switch {

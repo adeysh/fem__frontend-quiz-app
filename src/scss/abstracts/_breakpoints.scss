@@ -41,17 +41,19 @@ $breakpoints: (
     }
 }
 
-// Usage examples
-// .element {
-//     @include bp($from: "mobile", $to: "desktop") {
-//         background: red;
-//     }
+/*
+Usage examples
+.element {
+    @include bp($from: "mobile", $to: "desktop") {
+        background: red;
+    }
 
-//     @include bp($to: "desktop") {
-//         color: blue;
-//     }
+    @include bp($to: "desktop") {
+        color: blue;
+    }
 
-//     @include bp($from: "tablet", $extra: (orientation: landscape)) {
-//         font-size: 20px;
-//     }
-// }
+    @include bp($from: "tablet", $extra: (orientation: landscape)) {
+        font-size: 20px;
+    }
+}
+*/

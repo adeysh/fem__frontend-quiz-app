@@ -6,6 +6,7 @@
 
 .quiz__subject-heading-container {
     @include a.flexbox($align: center, $gap: a.rem(16));
+    font-size: clamp(1.125rem, 0.5286rem + 2.5445vw, 1.75rem);
 
     img {
         border-radius: a.rem(6);

@@ -5,6 +5,8 @@ export const quiz = document.getElementById("quiz");
 
 export const questionTemplate = document.getElementById("question-template");
 
+export const quizCompleteTemplate = document.getElementById("quiz-complete-template");
+
 export const uiState = {
     currentPage: [],
 };
@@ -18,4 +20,17 @@ export const subjects = {
 
 export const quizState = {
     questionCount: 0,
+    currentScore: 0,
 };
+
+export const quizzesObj = {};
+
+export let userChoiceLabel;
+
+export function setUserChoiceLabel(label) {
+    userChoiceLabel = label;
+}
+
+export function getUserChoiceLabel() {
+    return userChoiceLabel;
+}

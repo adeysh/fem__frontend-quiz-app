@@ -1,5 +1,6 @@
-import { subjectsForm, subjectHeader, subjects, uiState } from './constants';
-import { loadNextPage } from "./dom-utils";
+import { subjectsForm, subjectHeader, subjects, uiState, quizzesObj } from './constants';
+import { changeTextContent, loadNextPage, setElementAttribute } from "./dom-utils";
+import { fetchData } from './fetchData';
 
 export const setupEventListeners = () => {
     // event listener for subject option clicks
@@ -10,23 +11,36 @@ export const setupEventListeners = () => {
         const value = label.dataset?.value;
 
         if (value != undefined) {
-            // changing header image
-            subjectHeader.classList.toggle("hide", true);
+            // changing header content
+            subjectHeader.classList.remove("hide");
             const headerImg = subjectHeader.children[0];
             const subjectImg = label.children[1].cloneNode(true);
             subjectHeader.replaceChild(subjectImg, headerImg);
 
-            // changing header text
             const headerText = subjectHeader.children[1];
-            headerText.textContent = subjects[value];
+            changeTextContent(headerText, subjects[value]);
 
-            // setting data-subject 
             subjectHeader.dataset.subject = subjects[value];
 
-            // setting current page as quiz starting page
+            // changing page template and layout
             uiState.currentPage = [...quiz.children];
             quiz.classList.replace("quiz--intro-layout", "quiz--question-template-layout")
             loadNextPage(e);
         }
     }, true);
+
+    // event listener on load of quiz
+    window.addEventListener("load", async () => {
+        await fetchData();
+        Object.values(quizzesObj).forEach((quizObj, index) => {
+            const span = subjectsForm.children[index].querySelector("span");
+            changeTextContent(span, `${quizObj.title}`);
+
+            const img = subjectsForm.children[index].querySelector("img");
+            let iconPath = quizObj.icon;
+            iconPath = iconPath.replace(".", "");
+            setElementAttribute(img, "src", iconPath);
+            setElementAttribute(img, "alt", quizObj.title);
+        });
+    });
 };

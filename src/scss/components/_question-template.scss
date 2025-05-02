@@ -5,7 +5,7 @@
     margin-block-end: a.rem(24);
 
     .quiz__question-count {
-        font-size: var(--fs-m-xsmall);
+        font-size: var(--fs-xsmall);
         font-style: italic;
         color: var(--Periwinkle-Gray);
         font-weight: var(--fw-regular);
@@ -13,7 +13,7 @@
 
     .quiz__question {
         color: var(--White);
-        font-size: var(--fs-m-large);
+        font-size: var(--fs-large);
         font-weight: var(--fw-medium);
     }
 }
@@ -41,10 +41,26 @@
 
 .quiz__choices-form {
     line-height: 1;
-    @include a.flexbox($direction: column, $gap: a.rem(12));
+    @include a.flexbox($direction: column, $gap: clamp(0.75rem, 0.0344rem + 3.0534vw, 1.5rem));
     color: var(--White);
-    font-size: var(--fs-m-medium);
+    font-size: var(--fs-medium);
     font-weight: var(--fw-medium);
+
+    label:has(input:checked) {
+        border: 1.5px solid var(--Electric-Violet);
+    }
+
+    label.correct:has(input:checked),
+    label.correct {
+        border: 1.5px solid var(--Shamrock);
+    }
+
+    label.incorrect:has(input:checked),
+    label.incorrect {
+        border: 1.5px solid var(--Burnt-Sienna);
+    }
+
+
 }
 
 .quiz__choice-label {
@@ -54,18 +70,28 @@
     @include a.flexbox($align: center, $gap: a.rem(16));
     border-radius: a.rem(12);
     transition: 0.2s ease-in-out;
-
+    padding-inline: a.rem(5);
 
     &:active,
     &:hover,
     &:focus {
-        border: 1.5px solid var(--purple);
+        border: 1.5px solid var(--Electric-Violet);
 
 
         .quiz__choice-option {
             color: var(--Electric-Violet);
             background-color: var(--purple-light);
         }
+    }
+
+    input:is(:checked)+span {
+        background-color: var(--Electric-Violet);
+        color: var(--White);
+    }
+
+    img {
+        margin-inline-start: auto;
+        background-color: transparent;
     }
 }
 
@@ -75,9 +101,9 @@
     border-radius: a.rem(6);
     margin-block: a.rem(12);
     margin-inline-start: a.rem(12);
-    width: a.rem(40);
-    padding-block: a.rem(11);
-    padding-inline: a.rem(14);
+    width: clamp(2.5rem, 1.5458rem + 4.0712vw, 3.5rem);
+    padding-block: clamp(0.6875rem, 0.5086rem + 0.7634vw, 0.875rem);
+    padding-inline: clamp(0.875rem, 0.6365rem + 1.0178vw, 1.125rem);
 }
 
 .quiz__submit-btn {
@@ -101,6 +127,5 @@
 
 .quiz__error {
     @include a.flexbox($align: center, $justify: center, $gap: a.rem(12));
-    font-size: var(--fs-m-medium);
-    visibility: hidden;
+    font-size: var(--fs-medium);
 }

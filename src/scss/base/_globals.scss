@@ -31,7 +31,7 @@ h1 {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 input[type="radio"] {
