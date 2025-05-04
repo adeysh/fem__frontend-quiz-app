@@ -19,8 +19,8 @@
     width: 100%;
     background-color: var(--subject-form-label-bg);
     border-radius: a.rem(12);
-    transition: 0.2s ease-in-out;
     border: 1.5px solid transparent;
+    transition: all 0.2s ease-in-out;
 
     img {
         margin: a.rem(12);
@@ -36,19 +36,16 @@
 }
 
 .quiz__subject-img {
-    &--html {
-        background-color: var(--red-light);
-    }
+    $subjects: (
+        html: var(--red-light),
+        css: var(--green-light),
+        js: var(--blue-light),
+        a11y: var(--purple-light)
+    );
 
-    &--css {
-        background-color: var(--green-light);
+@each $subject, $color in $subjects {
+    &--#{$subject} {
+        background-color: #{$color};
     }
-
-    &--js {
-        background-color: var(--blue-light);
-    }
-
-    &--a11y {
-        background-color: var(--purple-light);
-    }
+}
 }

@@ -24,73 +24,69 @@
     display: inline-block;
     width: a.rem(45);
     height: a.rem(24);
-}
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:focus+.slider {
+            box-shadow: 0 0 1px var(--purple);
+        }
+
+        &:not(:checked)+.slider {
+            background-color: var(--input-not-checked-slider-bg);
+
+            &:hover {
+                background-color: var(--input-not-checked-slider-hover-bg);
+            }
+        }
+
+        &:checked+.slider {
+            background-color: var(--input-checked-slider-bg);
+
+
+            &::before {
+                transform: translateX(20px);
+            }
+
+            &:hover::before {
+                background-color: var(--input-checked-slider-hover-bg);
+            }
+        }
+    }
 }
 
 .slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-color: var(--slider-bg);
     -webkit-transition: .4s;
     transition: .4s;
-}
 
-.slider::before {
-    position: absolute;
-    content: "";
-    height: a.rem(18);
-    width: a.rem(18);
-    left: a.rem(3.68);
-    bottom: a.rem(3);
-    background-color: var(--slider-before-bg);
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:hover::before {
-    background-color: var(--slider-hover-before-bg);
-}
-
-input[type="checkbox"]:not(:checked)+.slider {
-    background-color: var(--input-not-checked-slider-bg);
-
-    &:hover {
-        background-color: var(--input-not-checked-slider-hover-bg);
+    &::before {
+        position: absolute;
+        content: "";
+        height: a.rem(18);
+        width: a.rem(18);
+        left: a.rem(3.68);
+        bottom: a.rem(3);
+        background-color: var(--slider-before-bg);
+        -webkit-transition: .4s;
+        transition: .4s;
     }
-}
 
-input:checked+.slider {
-    background-color: var(--input-checked-slider-bg);
-}
+    &:hover::before {
+        background-color: var(--slider-hover-before-bg);
+    }
 
-input:focus+.slider {
-    box-shadow: 0 0 1px var(--purple);
-}
+    /* Rounded sliders */
+    &.round {
+        border-radius: 34px;
 
-input:checked+.slider::before {
-    -webkit-transform: translateX(21px);
-    -ms-transform: translateX(21px);
-    transform: translateX(20px);
-}
-
-input:checked+.slider:hover::before {
-    background-color: var(--input-checked-slider-hover-bg);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round::before {
-    border-radius: 50%;
+        &::before {
+            border-radius: 50%;
+        }
+    }
 }

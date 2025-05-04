@@ -1,7 +1,7 @@
 @use "./functions" as f;
 
 :root {
-    // Colors
+    /* Colors */
 
     // base
     --purple: hsl(277, 91%, 56%);
@@ -32,7 +32,7 @@
     --Shamrock: var(--green);
     --Burnt-Sienna: var(--red);
 
-    // dark-mode
+    // dark-mode-semantics
 
     // globals
     --background-mobile: url(/assets/images/pattern-background-mobile-dark.svg) center left / 100% 100% no-repeat var(--Pickled-Bluewood);
@@ -103,7 +103,7 @@
     --green-border: 1.5px solid var(--Shamrock);
     --red-border: 1.5px solid var(--Burnt-Sienna);
 
-    // Fonts
+    /* Fonts */
 
     // font-family
     --ff: 'Rubik', sans-serif;
@@ -112,24 +112,6 @@
     --fw-light: 300;
     --fw-regular: 400;
     --fw-medium: 500;
-
-    // desktop
-    // --fs-body: #{f.rem(18)};
-    // --fs-xsmall: #{f.rem(20)};
-    // --fs-small: #{f.rem(24)};
-    // --fs-medium: #{f.rem(28)};
-    // --fs-large: #{f.rem(36)};
-    // --fs-xlarge: #{f.rem(64)};
-    // --fs-2xlarge: #{f.rem(144)};
-
-    // // mobile
-    // --fs-m-body: #{f.rem(12)};
-    // --fs-m-xsmall: #{f.rem(14)};
-    // --fs-m-small: #{f.rem(16)};
-    // --fs-m-medium: #{f.rem(18)};
-    // --fs-m-large: #{f.rem(20)};
-    // --fs-m-xlarge: #{f.rem(40)};
-    // --fs-m-2xlarge: #{f.rem(88)};
 
     // font-sizes
     --fs-body: clamp(0.75rem, 0.6428571428571428rem + 0.5357142857142857vw, 1.125rem);

@@ -5,6 +5,7 @@ html {
 }
 
 body {
+    position: relative;
     @include a.flexbox($direction: column, $align: center, $justify: center);
     font-family: var(--ff);
     font-weight: var(--fw-regular);
@@ -18,6 +19,10 @@ body {
 
     @include a.bp($from: "desktop") {
         background: var(--background-desktop);
+    }
+
+    @include a.bp($from: "tablet", $to: "desktop") {
+        padding-block: clamp(a.rem(64), -1.4286rem + 11.3095vw, a.rem(140));
     }
 }
 

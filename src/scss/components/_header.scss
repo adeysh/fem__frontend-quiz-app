@@ -14,5 +14,6 @@
         border-radius: a.rem(6);
         width: a.rem(40);
         padding: a.rem(5.8);
+        flex-shrink: 0;
     }
 }

@@ -1,4 +1,5 @@
 @use '../abstracts' as a;
+@use '../components/buttons';
 
 .quiz__complete-header {
 
@@ -35,21 +36,12 @@
 }
 
 .quiz__play-again-btn {
-    font-size: var(--fs-medium);
-    border: 1.5px solid transparent;
+    @extend %quiz-button;
     background-color: var(--play-again-btn-bg);
     color: var(--play-again-btn-text);
-    line-height: 1;
-    border-radius: a.rem(12);
     padding-block: a.rem(18);
-    font-weight: var(--fw-medium);
-    transition: 0.2s ease-in-out;
 
-    &:active,
-    &:hover,
-    &:focus {
-        cursor: pointer;
-        border: var(--purple-border);
+    &:is(:active, :hover, :focus) {
         background-color: var(--play-again-btn-hover-bg);
     }
 }

@@ -1,7 +1,27 @@
+@use "./breakpoints" as *;
+
 @mixin flexbox($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
     align-items: $align;
     gap: $gap;
+}
+
+// Generic grid layout mixin
+@mixin grid-layout($areas-mobile, $areas-desktop, $rows-mobile: auto, $rows-desktop: auto, $row-gap-mobile, $col-gap-mobile, $row-gap-desktop, $col-gap-desktop) {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: $rows-mobile;
+    grid-template-areas: $areas-mobile;
+    row-gap: $row-gap-mobile;
+    column-gap: $col-gap-mobile;
+
+    @include bp($from: "desktop") {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: $rows-desktop;
+        grid-template-areas: $areas-desktop;
+        row-gap: $row-gap-desktop;
+        column-gap: $col-gap-desktop;
+    }
 }

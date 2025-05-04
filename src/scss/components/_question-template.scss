@@ -1,23 +1,23 @@
 @use '../abstracts' as a;
+@use '../components/buttons';
+
+.quiz__question-meta {
+    font-size: var(--fs-xsmall);
+    font-style: italic;
+    color: var(--question-count-text);
+    font-weight: var(--fw-regular);
+}
 
 .quiz__question-header {
     @include a.flexbox($direction: column, $gap: a.rem(12));
     margin-block-end: a.rem(24);
 
-    .quiz__info {
-        p {
-            font-size: var(--fs-xsmall);
-            font-style: italic;
-            color: var(--question-count-text);
-            font-weight: var(--fw-regular);
-        }
+    .quiz__info p {
+        @extend .quiz__question-meta;
     }
 
     .quiz__question-count {
-        font-size: var(--fs-xsmall);
-        font-style: italic;
-        color: var(--question-count-text);
-        font-weight: var(--fw-regular);
+        @extend .quiz__question-meta;
     }
 
     .quiz__question {
@@ -43,8 +43,8 @@
 
     &::-webkit-progress-value {
         background-color: var(--progress-bar-value-bg);
-        max-height: a.rem(8);
-        border-radius: a.rem(10);
+        height: a.rem(8);
+        border-radius: inherit;
     }
 }
 
@@ -59,12 +59,10 @@
         border: var(--purple-border);
     }
 
-    label.correct:has(input:checked),
     label.correct {
         border: var(--green-border);
     }
 
-    label.incorrect:has(input:checked),
     label.incorrect {
         border: var(--red-border);
     }
@@ -86,14 +84,12 @@
     min-width: 0;
     @include a.flexbox($align: center, $gap: a.rem(16));
     border-radius: a.rem(12);
-    transition: 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     padding-inline: a.rem(5);
 
-    &:active,
-    &:hover,
-    &:focus {
+    &:is(:active, :hover, :focus) {
+        cursor: pointer;
         border: var(--purple-border);
-
 
         .quiz__choice-option {
             color: var(--choice-option-hover-text);
@@ -124,20 +120,12 @@
 }
 
 .quiz__submit-btn {
-    font-size: a.rem(18);
-    line-height: 1;
-    padding-block: a.rem(18);
-    border: 1.5px solid transparent;
+    @extend %quiz-button;
     background-color: var(--submit-btn-bg);
     color: var(--submit-btn-text);
-    border-radius: a.rem(12);
-    transition: 0.2s ease-in-out;
+    padding-block: a.rem(18);
 
-    &:active,
-    &:hover,
-    &:focus {
-        cursor: pointer;
-        border: var(--purple-border);
+    &:is(:active, :hover, :focus) {
         background-color: var(--submit-btn-hover-bg);
     }
 }

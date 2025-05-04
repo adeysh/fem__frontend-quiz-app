@@ -1,13 +1,24 @@
 @use '../abstracts' as a;
 
+/* 
+grid-layout(
+$areas-mobile, $areas-desktop, 
+$rows-mobile: auto, $rows-desktop: auto, 
+$row-gap-mobile, $col-gap-mobile, 
+$row-gap-desktop, $col-gap-desktop
+) 
+*/
+
+// Intro layout
 .quiz--intro-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "intro"
-        "subjects-form";
-    gap: 0 clamp(1.5rem, -28rem + 40vw, 3rem);
+    @include a.grid-layout("intro" "subjects-form",
+        "intro subjects-form" "intro subjects-form",
+        auto auto,
+        auto auto,
+        0,
+        clamp(1.5rem, -28rem + 40vw, 3rem),
+        0,
+        clamp(1.5rem, -28rem + 40vw, 3rem));
 
     &__intro {
         grid-area: intro;
@@ -16,27 +27,18 @@
     &__subjects-form {
         grid-area: subjects-form;
     }
-
-    @include a.bp($from: "desktop") {
-
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "intro subjects-form"
-            "intro subjects-form";
-
-    }
 }
 
+// Question layout
 .quiz--question-template-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-        "question-header"
-        "progress-bar"
-        "choices-form";
-    gap: 0 clamp(2.5rem, -28rem + 40vw, 5rem);
-
+    @include a.grid-layout("question-header" "progress-bar" "choices-form",
+        "question-header choices-form" "progress-bar choices-form",
+        auto auto auto,
+        auto auto,
+        0,
+        clamp(2.5rem, -28rem + 40vw, 5rem),
+        0,
+        clamp(1.5rem, -28rem + 40vw, 3rem));
 
     .quiz__question-header {
         grid-area: question-header;
@@ -49,24 +51,18 @@
     .quiz__choices-form {
         grid-area: choices-form;
     }
-
-    @include a.bp($from: "desktop") {
-
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "question-header choices-form"
-            "progress-bar choices-form";
-    }
 }
 
+// Complete layout
 .quiz--complete-template-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "complete-header"
-        "complete-container";
-    gap: clamp(1.5rem, -28rem + 40vw, 3rem);
+    @include a.grid-layout("complete-header" "complete-container",
+        "complete-header complete-container" "complete-header complete-container",
+        auto auto,
+        auto auto,
+        clamp(1.5rem, -28rem + 40vw, 3rem),
+        clamp(1.5rem, -28rem + 40vw, 3rem),
+        clamp(2.5rem, 1.0687rem + 6.1069vw, 4rem),
+        clamp(2.5rem, 1.0687rem + 6.1069vw, 4rem));
 
     .quiz__complete-header {
         grid-area: complete-header;
@@ -74,14 +70,5 @@
 
     .quiz__complete-container {
         grid-area: complete-container;
-    }
-
-    @include a.bp($from: "desktop") {
-
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-            "complete-header complete-container"
-            "complete-header complete-container";
-        gap: clamp(2.5rem, 1.0687rem + 6.1069vw, 4rem);
     }
 }

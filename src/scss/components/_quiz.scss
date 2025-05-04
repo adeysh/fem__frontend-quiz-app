@@ -3,10 +3,14 @@
 .quiz {
     padding-block-start: a.rem(60);
 
+    &__intro-title,
+    &__intro-subtitle {
+        line-height: 1.2;
+    }
+
     &__intro-title {
         font-size: var(--fs-xlarge);
         font-weight: var(--fw-light);
-        line-height: 1.2;
         color: var(--intro-title-text);
     }
 

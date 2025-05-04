@@ -1,0 +1,15 @@
+@use '../abstracts' as a;
+
+%quiz-button {
+    font-size: var(--fs-medium);
+    border: 1.5px solid transparent;
+    border-radius: a.rem(12);
+    line-height: 1;
+    font-weight: var(--fw-medium);
+    transition: all 0.2s ease-in-out;
+
+    &:is(:active, :hover, :focus) {
+        cursor: pointer;
+        border: var(--purple-border);
+    }
+}
