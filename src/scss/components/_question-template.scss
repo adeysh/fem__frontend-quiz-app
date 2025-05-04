@@ -4,15 +4,24 @@
     @include a.flexbox($direction: column, $gap: a.rem(12));
     margin-block-end: a.rem(24);
 
+    .quiz__info {
+        p {
+            font-size: var(--fs-xsmall);
+            font-style: italic;
+            color: var(--question-count-text);
+            font-weight: var(--fw-regular);
+        }
+    }
+
     .quiz__question-count {
         font-size: var(--fs-xsmall);
         font-style: italic;
-        color: var(--Periwinkle-Gray);
+        color: var(--question-count-text);
         font-weight: var(--fw-regular);
     }
 
     .quiz__question {
-        color: var(--White);
+        color: var(--question-text);
         font-size: var(--fs-large);
         font-weight: var(--fw-medium);
     }
@@ -27,13 +36,13 @@
 
 
     &::-webkit-progress-bar {
-        background-color: var(--Fiord);
+        background-color: var(--progress-bar-bg);
         border-radius: a.rem(10);
         padding: a.rem(4);
     }
 
     &::-webkit-progress-value {
-        background-color: var(--Electric-Violet);
+        background-color: var(--progress-bar-value-bg);
         max-height: a.rem(8);
         border-radius: a.rem(10);
     }
@@ -42,30 +51,38 @@
 .quiz__choices-form {
     line-height: 1;
     @include a.flexbox($direction: column, $gap: clamp(0.75rem, 0.0344rem + 3.0534vw, 1.5rem));
-    color: var(--White);
+    color: var(--choices-form-text);
     font-size: var(--fs-medium);
     font-weight: var(--fw-medium);
 
     label:has(input:checked) {
-        border: 1.5px solid var(--Electric-Violet);
+        border: var(--purple-border);
     }
 
     label.correct:has(input:checked),
     label.correct {
-        border: 1.5px solid var(--Shamrock);
+        border: var(--green-border);
     }
 
     label.incorrect:has(input:checked),
     label.incorrect {
-        border: 1.5px solid var(--Burnt-Sienna);
+        border: var(--red-border);
     }
 
+    .correct>input:is(:checked)+span {
+        background-color: var(--Shamrock);
+        color: var(--White);
+    }
 
+    .incorrect>input:is(:checked)+span {
+        background-color: var(--Burnt-Sienna);
+        color: var(--White);
+    }
 }
 
 .quiz__choice-label {
     border: 1.5px solid transparent;
-    background-color: var(--Fiord);
+    background-color: var(--choice-label-bg);
     min-width: 0;
     @include a.flexbox($align: center, $gap: a.rem(16));
     border-radius: a.rem(12);
@@ -75,18 +92,18 @@
     &:active,
     &:hover,
     &:focus {
-        border: 1.5px solid var(--Electric-Violet);
+        border: var(--purple-border);
 
 
         .quiz__choice-option {
-            color: var(--Electric-Violet);
-            background-color: var(--purple-light);
+            color: var(--choice-option-hover-text);
+            background-color: var(--choice-option-hover-bg);
         }
     }
 
     input:is(:checked)+span {
-        background-color: var(--Electric-Violet);
-        color: var(--White);
+        background-color: var(--input-is-checked-span-bg);
+        color: var(--input-is-checked-span-text);
     }
 
     img {
@@ -96,8 +113,8 @@
 }
 
 .quiz__choice-option {
-    background-color: var(--Catskill-White);
-    color: var(--Shuttle-Gray);
+    background-color: var(--choice-option-bg);
+    color: var(--choice-option-text);
     border-radius: a.rem(6);
     margin-block: a.rem(12);
     margin-inline-start: a.rem(12);
@@ -111,8 +128,8 @@
     line-height: 1;
     padding-block: a.rem(18);
     border: 1.5px solid transparent;
-    background-color: var(--Electric-Violet);
-    color: var(--White);
+    background-color: var(--submit-btn-bg);
+    color: var(--submit-btn-text);
     border-radius: a.rem(12);
     transition: 0.2s ease-in-out;
 
@@ -120,8 +137,8 @@
     &:hover,
     &:focus {
         cursor: pointer;
-        border: 1.5px solid var(--Electric-Violet);
-        background-color: var(--purple-dark);
+        border: var(--purple-border);
+        background-color: var(--submit-btn-hover-bg);
     }
 }
 

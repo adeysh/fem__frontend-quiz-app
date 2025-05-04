@@ -7,12 +7,13 @@
         font-size: var(--fs-xlarge);
         font-weight: var(--fw-light);
         line-height: 1.2;
+        color: var(--intro-title-text);
     }
 
     &__intro-subtitle {
         font-size: var(--fs-xsmall);
         font-style: italic;
         margin-block-start: a.rem(20);
-        color: var(--Periwinkle-Gray);
+        color: var(--intro-subtitle-text);
     }
 }

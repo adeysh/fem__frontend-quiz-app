@@ -32,6 +32,77 @@
     --Shamrock: var(--green);
     --Burnt-Sienna: var(--red);
 
+    // dark-mode
+
+    // globals
+    --background-mobile: url(/assets/images/pattern-background-mobile-dark.svg) center left / 100% 100% no-repeat var(--Pickled-Bluewood);
+
+    --background-tablet: url(/assets/images/pattern-background-tablet-dark.svg) center left / 100% 100% no-repeat var(--Pickled-Bluewood);
+
+    --background-desktop: url(/assets/images/pattern-background-desktop-dark.svg) center left / 100% 100% no-repeat var(--Pickled-Bluewood);
+
+    // subjects-form
+    --subject-form-text: var(--White);
+    --subject-form-label-bg: var(--Fiord);
+
+    // subject-header
+    --subject-heading-container-text: var(--White);
+
+    // question-template
+    --question-count-text: var(--Periwinkle-Gray);
+    --question-text: var(--White);
+
+    --progress-bar-bg: var(--Fiord);
+    --progress-bar-value-bg: var(--Electric-Violet);
+
+    --choices-form-text: var(--White);
+    --choice-label-bg: var(--Fiord);
+
+    --choice-option-hover-text: var(--Electric-Violet);
+    --choice-option-hover-bg: var(--purple-light);
+
+    --input-is-checked-span-text: var(--White);
+    --input-is-checked-span-bg: var(--Electric-Violet);
+
+    --choice-option-text: var(--Shuttle-Gray);
+    --choice-option-bg: var(--Catskill-White);
+
+    --submit-btn-text: var(--White);
+    --submit-btn-bg: var(--Electric-Violet);
+    --submit-btn-hover-bg: var(--purple-dark);
+
+    // completion template
+    --quiz-complete-header-text: var(--White);
+
+    --final-score-container-bg: var(--Fiord);
+    --final-score-text: var(--White);
+
+    --total-score-text: var(--Periwinkle-Gray);
+
+    --play-again-btn-bg: var(--Electric-Violet);
+    --play-again-btn-text: var(--White);
+    --play-again-btn-hover-bg: var(--purple-dark);
+
+    // quiz
+    --intro-title-text: var(--White);
+    --intro-subtitle-text: var(--Periwinkle-Gray);
+
+    // toggle 
+    --slider-bg: var(--Shuttle-Gray);
+    --slider-before-bg: var(--White);
+    --slider-hover-before-bg: var(--Fiord);
+
+    --input-not-checked-slider-bg: var(--Shuttle-Gray);
+    --input-not-checked-slider-hover-bg: var(--Catskill-White);
+
+    --input-checked-slider-bg: var(--Electric-Violet);
+    --input-checked-slider-hover-bg: var(--Catskill-White);
+
+    // border
+    --purple-border: 1.5px solid var(--Electric-Violet);
+    --green-border: 1.5px solid var(--Shamrock);
+    --red-border: 1.5px solid var(--Burnt-Sienna);
+
     // Fonts
 
     // font-family

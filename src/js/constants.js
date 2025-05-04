@@ -7,6 +7,11 @@ export const questionTemplate = document.getElementById("question-template");
 
 export const quizCompleteTemplate = document.getElementById("quiz-complete-template");
 
+export const toggleSwitchLabel = document.getElementById("switch-label");
+
+import JSConfetti from 'js-confetti';
+export const jsConfetti = new JSConfetti();
+
 export const uiState = {
     currentPage: [],
 };

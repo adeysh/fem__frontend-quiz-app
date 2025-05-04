@@ -1,4 +1,4 @@
-import { subjectsForm, subjectHeader, subjects, uiState, quizzesObj } from './constants';
+import { subjectsForm, subjectHeader, subjects, uiState, quizzesObj, toggleSwitchLabel } from './constants';
 import { changeTextContent, loadNextPage, setElementAttribute } from "./dom-utils";
 import { fetchData } from './fetchData';
 
@@ -42,5 +42,13 @@ export const setupEventListeners = () => {
             setElementAttribute(img, "src", iconPath);
             setElementAttribute(img, "alt", quizObj.title);
         });
+    });
+
+    toggleSwitchLabel.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("toggle");
+        const input = e.currentTarget.querySelector("input");
+        input.checked = !input.checked
+        document.documentElement.classList.toggle("light-mode");
     });
 };

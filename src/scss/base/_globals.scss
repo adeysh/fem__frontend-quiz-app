@@ -8,17 +8,16 @@ body {
     @include a.flexbox($direction: column, $align: center, $justify: center);
     font-family: var(--ff);
     font-weight: var(--fw-regular);
-    background: url(/assets/images/pattern-background-mobile-dark.svg) center left / 100% 100% no-repeat var(--Pickled-Bluewood);
+    background: var(--background-mobile);
     color: var(--White);
     min-height: 100vh;
 
     @include a.bp($from: "tablet") {
-        background-image: url(/assets/images/pattern-background-tablet-dark.svg);
+        background: var(--background-tablet);
     }
 
     @include a.bp($from: "desktop") {
-
-        background-image: url(/assets/images/pattern-background-desktop-dark.svg);
+        background: var(--background-desktop);
     }
 }
 

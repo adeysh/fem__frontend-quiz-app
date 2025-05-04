@@ -7,6 +7,16 @@
         width: clamp(1rem, 0.5229rem + 2.0356vw, 1.5rem);
         height: clamp(1rem, 0.5229rem + 2.0356vw, 1.5rem);
     }
+
+    .sun-dark,
+    .moon-dark {
+        display: none;
+    }
+
+    .sun-light,
+    .moon-light {
+        display: inline-block;
+    }
 }
 
 .switch {
@@ -29,12 +39,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--grey-navy);
+    background-color: var(--slider-bg);
     -webkit-transition: .4s;
     transition: .4s;
-
-
-
 }
 
 .slider::before {
@@ -42,27 +49,27 @@
     content: "";
     height: a.rem(18);
     width: a.rem(18);
-    left: a.rem(3);
+    left: a.rem(3.68);
     bottom: a.rem(3);
-    background-color: var(--pure-white);
+    background-color: var(--slider-before-bg);
     -webkit-transition: .4s;
     transition: .4s;
 }
 
 .slider:hover::before {
-    background-color: var(--Fiord);
+    background-color: var(--slider-hover-before-bg);
 }
 
 input[type="checkbox"]:not(:checked)+.slider {
-    background-color: var(--Shuttle-Gray);
+    background-color: var(--input-not-checked-slider-bg);
 
     &:hover {
-        background-color: var(--light-grey);
+        background-color: var(--input-not-checked-slider-hover-bg);
     }
 }
 
 input:checked+.slider {
-    background-color: var(--purple);
+    background-color: var(--input-checked-slider-bg);
 }
 
 input:focus+.slider {
@@ -72,14 +79,16 @@ input:focus+.slider {
 input:checked+.slider::before {
     -webkit-transform: translateX(21px);
     -ms-transform: translateX(21px);
-    transform: translateX(21px);
+    transform: translateX(20px);
+}
+
+input:checked+.slider:hover::before {
+    background-color: var(--input-checked-slider-hover-bg);
 }
 
 /* Rounded sliders */
 .slider.round {
     border-radius: 34px;
-
-
 }
 
 .slider.round::before {

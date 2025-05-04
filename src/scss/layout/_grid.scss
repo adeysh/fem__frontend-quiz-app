@@ -66,7 +66,7 @@
     grid-template-areas:
         "complete-header"
         "complete-container";
-    gap: 0 clamp(1.5rem, -28rem + 40vw, 3rem);
+    gap: clamp(1.5rem, -28rem + 40vw, 3rem);
 
     .quiz__complete-header {
         grid-area: complete-header;

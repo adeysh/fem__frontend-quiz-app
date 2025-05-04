@@ -6,6 +6,7 @@
         font-size: var(--fs-xlarge);
         font-weight: var(--fw-light);
         line-height: 1.2;
+        color: var(--quiz-complete-header-text);
     }
 }
 
@@ -15,19 +16,19 @@
 
 .quiz__final-score-container {
     @include a.flexbox($direction: column, $align: center, $gap: a.rem(16));
-    background-color: var(--Fiord);
+    background-color: var(--final-score-container-bg);
     padding-block: clamp(2rem, 1.0458rem + 4.0712vw, 3rem);
     border-radius: a.rem(12);
 
     .quiz__final-score {
-        color: var(--White);
+        color: var(--final-score-text);
         font-size: var(--fs-2xlarge);
         line-height: 1;
         font-weight: var(--fw-medium);
     }
 
     .quiz__total-score {
-        color: var(--Periwinkle-Gray);
+        color: var(--total-score-text);
         font-size: var(--fs-medium);
         line-height: 1;
     }
@@ -36,8 +37,8 @@
 .quiz__play-again-btn {
     font-size: var(--fs-medium);
     border: 1.5px solid transparent;
-    background-color: var(--Electric-Violet);
-    color: var(--White);
+    background-color: var(--play-again-btn-bg);
+    color: var(--play-again-btn-text);
     line-height: 1;
     border-radius: a.rem(12);
     padding-block: a.rem(18);
@@ -48,7 +49,7 @@
     &:hover,
     &:focus {
         cursor: pointer;
-        border: 1.5px solid var(--Electric-Violet);
-        background-color: var(--purple-dark);
+        border: var(--purple-border);
+        background-color: var(--play-again-btn-hover-bg);
     }
 }

@@ -1,4 +1,4 @@
-import { questionTemplate, quiz, quizState, quizCompleteTemplate, subjectHeader, quizzesObj, setUserChoiceLabel, getUserChoiceLabel, uiState } from "./constants";
+import { questionTemplate, quiz, quizState, quizCompleteTemplate, subjectHeader, quizzesObj, setUserChoiceLabel, getUserChoiceLabel, uiState, jsConfetti } from "./constants";
 
 let questionCount = quizState.questionCount;
 let currentScore = quizState.currentScore;
@@ -24,13 +24,6 @@ export const loadNextPage = function (e) {
                 quizError.classList.add("hide");
             });
         }
-        // choiceInputs.forEach(input => {
-        //     input.addEventListener("change", () => {
-        //         console.log("change");
-        //         // Fade out the error
-        //         quizError.classList.add("hide");
-        //     });
-        // });
 
         setUserChoiceLabel(undefined);
 
@@ -39,6 +32,9 @@ export const loadNextPage = function (e) {
 
         const maxQuestions = clone.getElementById("max-questions");
         changeTextContent(maxQuestions, `${subject.questions.length}`);
+
+        const currentScoreEl = clone.getElementById("current-score");
+        changeTextContent(currentScoreEl, currentScore)
 
         const question = clone.getElementById("question");
         changeTextContent(question, subject.questions[questionCount].question);
@@ -93,8 +89,9 @@ export const checkAnswer = function (e) {
 
         if (answer === userChoice) {
             console.log("correct");
-            const img = document.createElement("img");
 
+
+            const img = document.createElement("img");
             setElementAttribute(img, "src", "/assets/images/icon-correct.svg");
             setElementAttribute(img, "alt", "checkmark icon");
             getUserChoiceLabel().appendChild(img);
@@ -118,7 +115,10 @@ export const checkAnswer = function (e) {
             button.addEventListener("mouseup", loadNextPage);
 
             currentScore += 1;
-            console.log(currentScore);
+
+            const currentScoreEl = document.getElementById("current-score");
+            console.log(currentScoreEl, currentScore);
+            changeTextContent(currentScoreEl, currentScore);
         } else if (answer !== userChoice) {
             console.log("incorrect");
             const imgIncorrect = document.createElement("img");
@@ -164,6 +164,8 @@ const playAgain = function (e) {
     console.log("play again");
     console.log(uiState.currentPage);
     quiz.replaceChildren(...uiState.currentPage);
+    quiz.classList.replace("quiz--complete-template-layout", "quiz--intro-layout")
+
     subjectHeader.classList.add("hide");
 
     currentScore = 0;
@@ -174,6 +176,28 @@ export const quizCompleted = function (e) {
     console.log("quiz complete");
     subjectHeader.classList.remove("hide");
     const clone = quizCompleteTemplate.content.cloneNode(true);
+
+    const messageEl = clone.getElementById("message");
+    let cheerWords = "";
+
+    if (currentScore === 10) {
+        cheerWords = "Perfect";
+
+        jsConfetti.addConfetti({
+            confettiRadius: 6,
+            confettiNumber: 200,
+        });
+
+    } else if (currentScore < 10 && currentScore >= 8) {
+        cheerWords = "Great";
+    } else if (currentScore < 8 && currentScore >= 5) {
+        cheerWords = "Good";
+    } else {
+        cheerWords = "Nice Try";
+    }
+
+    let message = `${cheerWords}! You scored...`;
+    changeTextContent(messageEl, message);
 
     const finalScoreContainer = clone.getElementById("final-score-container");
 
@@ -190,6 +214,7 @@ export const quizCompleted = function (e) {
     playAgainBtn.addEventListener("click", playAgain);
 
     quiz.classList.replace("quiz--question-template-layout", "quiz--complete-template-layout");
+
     quiz.replaceChildren(clone);
 };
 

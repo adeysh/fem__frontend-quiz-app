@@ -4,7 +4,7 @@
     margin-block-start: a.rem(40);
     line-height: 1;
     @include a.flexbox($direction: column, $gap: clamp(0.75rem, 0.0344rem + 3.0534vw, 1.5rem));
-    color: var(--White);
+    color: var(--subject-form-text);
     font-size: var(--fs-medium);
     font-weight: var(--fw-medium);
 
@@ -17,7 +17,7 @@
 .quiz__subject-label {
     @include a.flexbox($align: center, $gap: a.rem(16));
     width: 100%;
-    background-color: var(--Fiord);
+    background-color: var(--subject-form-label-bg);
     border-radius: a.rem(12);
     transition: 0.2s ease-in-out;
     border: 1.5px solid transparent;
@@ -31,7 +31,7 @@
 
     &:hover,
     &:focus {
-        border: 1.5px solid var(--purple);
+        border: var(--purple-border);
     }
 }
 
