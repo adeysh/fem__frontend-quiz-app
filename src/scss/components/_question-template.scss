@@ -87,6 +87,15 @@
     transition: all 0.2s ease-in-out;
     padding-inline: a.rem(5);
 
+    &:has(input:checked) {
+        border: var(--purple-border);
+
+        .quiz__choice-option {
+            color: var(--input-is-checked-span-text);
+            background-color: var(--input-is-checked-span-bg);
+        }
+    }
+
     &:is(:active, :hover, :focus) {
         cursor: pointer;
         border: var(--purple-border);
@@ -97,18 +106,18 @@
         }
     }
 
-    input:is(:checked)+span {
-        background-color: var(--input-is-checked-span-bg);
-        color: var(--input-is-checked-span-text);
-    }
-
     img {
         margin-inline-start: auto;
         background-color: transparent;
     }
+
+    &:focus-visible {
+        outline: var(--choice-label-outline);
+    }
 }
 
 .quiz__choice-option {
+    @include a.flexbox($align: center, $justify: center);
     background-color: var(--choice-option-bg);
     color: var(--choice-option-text);
     border-radius: a.rem(6);
@@ -127,6 +136,10 @@
 
     &:is(:active, :hover, :focus) {
         background-color: var(--submit-btn-hover-bg);
+    }
+
+    &:focus-visible {
+        outline: var(--submit-btn-outline);
     }
 }
 

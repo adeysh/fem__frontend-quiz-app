@@ -20,7 +20,9 @@
     background-color: var(--subject-form-label-bg);
     border-radius: a.rem(12);
     border: 1.5px solid transparent;
+    outline: 0;
     transition: all 0.2s ease-in-out;
+
 
     img {
         margin: a.rem(12);
@@ -30,7 +32,8 @@
     }
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:focus-visible {
         border: var(--purple-border);
     }
 }

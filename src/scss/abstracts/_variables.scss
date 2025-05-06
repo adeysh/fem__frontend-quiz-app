@@ -34,6 +34,15 @@
 
     // dark-mode-semantics
 
+    // border
+    --purple-border: 1.5px solid var(--Electric-Violet);
+    --green-border: 1.5px solid var(--Shamrock);
+    --red-border: 1.5px solid var(--Burnt-Sienna);
+
+    // outline
+    --purple-outline: 1.5px solid var(--Electric-Violet);
+    --white-outline: 1.5px solid var(--Catskill-White);
+
     // globals
     --background-mobile: url(/assets/images/pattern-background-mobile-dark.svg) center left / 100% 100% no-repeat var(--Pickled-Bluewood);
 
@@ -57,6 +66,7 @@
 
     --choices-form-text: var(--White);
     --choice-label-bg: var(--Fiord);
+    --choice-label-outline: var(--Electric-Violet);
 
     --choice-option-hover-text: var(--Electric-Violet);
     --choice-option-hover-bg: var(--purple-light);
@@ -70,6 +80,7 @@
     --submit-btn-text: var(--White);
     --submit-btn-bg: var(--Electric-Violet);
     --submit-btn-hover-bg: var(--purple-dark);
+    --submit-btn-outline: var(--Electric-Violet);
 
     // completion template
     --quiz-complete-header-text: var(--White);
@@ -82,6 +93,7 @@
     --play-again-btn-bg: var(--Electric-Violet);
     --play-again-btn-text: var(--White);
     --play-again-btn-hover-bg: var(--purple-dark);
+    --play-again-btn-outline: var(--purple-outline);
 
     // quiz
     --intro-title-text: var(--White);
@@ -98,10 +110,10 @@
     --input-checked-slider-bg: var(--Electric-Violet);
     --input-checked-slider-hover-bg: var(--Catskill-White);
 
-    // border
-    --purple-border: 1.5px solid var(--Electric-Violet);
-    --green-border: 1.5px solid var(--Shamrock);
-    --red-border: 1.5px solid var(--Burnt-Sienna);
+    --toggle-outline: var(--white-outline);
+
+    // footer
+    --footer-color: var(--White);
 
     /* Fonts */
 

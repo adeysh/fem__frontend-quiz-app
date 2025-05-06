@@ -14,6 +14,7 @@
             text-align: center;
             position: absolute;
             bottom: 5px;
+            color: var(--footer-color);
             /* display: none; */
         }
 
@@ -45,7 +46,7 @@
                     <path fill="#fff"
                         d="M12 1.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5A.75.75 0 0 1 12 1.5Zm0 15a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0-1.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm9.75-2.25a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5ZM12 19.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75Zm-8.25-6.75a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5Zm.969-8.031a.75.75 0 0 1 1.062 0l1.5 1.5a.751.751 0 0 1-1.062 1.062l-1.5-1.5a.75.75 0 0 1 0-1.062Zm1.062 14.562a.75.75 0 1 1-1.062-1.06l1.5-1.5a.75.75 0 1 1 1.062 1.06l-1.5 1.5Zm13.5-14.562a.75.75 0 0 0-1.062 0l-1.5 1.5a.751.751 0 0 0 1.062 1.062l1.5-1.5a.75.75 0 0 0 0-1.062Zm-1.062 14.562a.75.75 0 0 0 1.062-1.06l-1.5-1.5a.75.75 0 0 0-1.062 1.06l1.5 1.5Z" />
                 </svg>
-                <label class="switch" id="switch-label">
+                <label tabindex="0" class="switch" id="switch-label">
                     <label for="toggle-switch" class="visually-hidden">Toggle dark mode</label>
                     <input type="checkbox" checked name="switch" id="toggle-switch" title="Toggle dark mode">
                     <span class="slider round"></span>
@@ -77,24 +78,24 @@
                 </p>
             </div>
             <form class="quiz__subjects-form" id="subjects-form" novalidate>
-                <label for="html" data-value="html" class="quiz__subject-label">
+                <label tabindex="0" for="html" data-value="html" class="quiz__subject-label">
                     <input type="radio" name="subjects" id="html" class="quiz__subject-input">
                     <img src="/assets/images/icon-html.svg" alt="HTML icon"
                         class="quiz__subject-img quiz__subject-img--html">
                     <span>HTML</span>
                 </label>
-                <label for="css" data-value="css" class="quiz__subject-label">
+                <label tabindex="0" for="css" data-value="css" class="quiz__subject-label">
                     <input type="radio" name="subjects" id="css" class="quiz__subject-input">
                     <img src="/assets/images/icon-css.svg" alt="CSS icon"
                         class="quiz__subject-img quiz__subject-img--css">
                     <span>CSS</span>
                 </label>
-                <label for="js" data-value="js" class="quiz__subject-label">
+                <label tabindex="0" for="js" data-value="js" class="quiz__subject-label">
                     <input type="radio" name="subjects" id="js" class="quiz__subject-input">
                     <img src="/assets/images/icon-js.svg" alt="JS icon" class="quiz__subject-img quiz__subject-img--js">
                     <span>JavaScript</span>
                 </label>
-                <label for="a11y" data-value="a11y" class="quiz__subject-label">
+                <label tabindex="0" for="a11y" data-value="a11y" class="quiz__subject-label">
                     <input type="radio" name="subjects" id="a11y" class="quiz__subject-input">
                     <img src="/assets/images/icon-accessibility.svg" alt="Accessibility icon"
                         class="quiz__subject-img quiz__subject-img--a11y">
@@ -120,22 +121,22 @@
             </div>
             <progress class="quiz__progress-bar" id="progress" value="1" max="10" role="progressbar"></progress>
             <form class="quiz__choices-form" novalidate id="choices-form">
-                <label for="a" class="quiz__choice-label" data-choice="Hyper Trainer Marking Language">
+                <label tabindex="0" for="a" class="quiz__choice-label" data-choice="Hyper Trainer Marking Language">
                     <input type="radio" name="choices" id="a">
                     <span class="quiz__choice-option">A</span>
                     <span class="quiz__choice-option-text">Hyper Trainer Marking Language</span>
                 </label>
-                <label for="b" class="quiz__choice-label" data-choice="Hyper Text Marketing Language">
+                <label tabindex="0" for="b" class="quiz__choice-label" data-choice="Hyper Text Marketing Language">
                     <input type="radio" name="choices" id="b">
                     <span class="quiz__choice-option">B</span>
                     <span class="quiz__choice-option-text">Hyper Text Marketing Language</span>
                 </label>
-                <label for="c" class="quiz__choice-label" data-choice="Hyper Text Markup Language">
+                <label tabindex="0" for="c" class="quiz__choice-label" data-choice="Hyper Text Markup Language">
                     <input type="radio" name="choices" id="c">
                     <span class="quiz__choice-option">C</span>
                     <span class="quiz__choice-option-text">Hyper Text Markup Language</span>
                 </label>
-                <label for="d" class="quiz__choice-label" data-choice="Hyper Text Markup Leveler">
+                <label tabindex="0" for="d" class="quiz__choice-label" data-choice="Hyper Text Markup Leveler">
                     <input type="radio" name="choices" id="d">
                     <span class="quiz__choice-option">D</span>
                     <span class="quiz__choice-option-text">Hyper Text Markup Leveler</span>

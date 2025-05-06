@@ -1,18 +1,16 @@
-import { questionTemplate, quiz, quizState, quizCompleteTemplate, subjectHeader, quizzesObj, setUserChoiceLabel, getUserChoiceLabel, uiState, jsConfetti } from "./constants";
-
-let questionCount = quizState.questionCount;
-let currentScore = quizState.currentScore;
+import { questionTemplate, quiz, quizCompleteTemplate, subjectHeader, quizzesObj, setUserChoiceLabel, getUserChoiceLabel, uiState, jsConfetti, getQuestionCount, setQuestionCount, incrementQuestionCount, getCurrentScore, setCurrentScore, incrementCurrentScore } from "./constants";
 
 export const loadNextPage = function (e) {
     console.log("loadnextpage");
 
-    if (questionCount !== 10) {
+    if (getQuestionCount() !== 10) {
         const subject = quizzesObj[subjectHeader.dataset.subject];
 
         const clone = questionTemplate.content.cloneNode(true);
         const choicesForm = clone.getElementById("choices-form");
 
         choicesForm.addEventListener("click", checkAnswer, true);
+        choicesForm.addEventListener("keyup", keyboardClick, true);
 
         const choiceInputs = clone.querySelectorAll('input[name="choices"]');
         const quizError = document.getElementById("quiz-error");
@@ -28,24 +26,24 @@ export const loadNextPage = function (e) {
         setUserChoiceLabel(undefined);
 
         const currentQuestion = clone.getElementById("current-question");
-        changeTextContent(currentQuestion, `${questionCount + 1}`);
+        changeTextContent(currentQuestion, `${getQuestionCount() + 1}`);
 
         const maxQuestions = clone.getElementById("max-questions");
         changeTextContent(maxQuestions, `${subject.questions.length}`);
 
         const currentScoreEl = clone.getElementById("current-score");
-        changeTextContent(currentScoreEl, currentScore)
+        changeTextContent(currentScoreEl, getCurrentScore())
 
         const question = clone.getElementById("question");
-        changeTextContent(question, subject.questions[questionCount].question);
+        changeTextContent(question, subject.questions[getQuestionCount()].question);
 
         const progress = clone.getElementById("progress");
-        setElementAttribute(progress, "value", questionCount + 1);
+        setElementAttribute(progress, "value", getQuestionCount() + 1);
 
         const options = clone.querySelectorAll(".quiz__choice-label");
 
         options.forEach((option, index) => {
-            const subjectOption = subject.questions[questionCount].options[index];
+            const subjectOption = subject.questions[getQuestionCount()].options[index];
             option.dataset.choice = subjectOption;
 
             const optionText = option.querySelector(".quiz__choice-option-text");
@@ -80,7 +78,7 @@ export const checkAnswer = function (e) {
 
         quizError.classList.add("hide");
 
-        const answer = quizzesObj[subjectHeader.dataset.subject].questions[questionCount].answer;
+        const answer = quizzesObj[subjectHeader.dataset.subject].questions[getQuestionCount()].answer;
 
         const answerLabel = document.querySelector(`label[data-choice="${answer}"]`);
         const userChoice = getUserChoiceLabel().dataset.choice;
@@ -90,19 +88,10 @@ export const checkAnswer = function (e) {
         if (answer === userChoice) {
             console.log("correct");
 
+            appendIcon(getUserChoiceLabel(), "/assets/images/icon-correct.svg", "checkmark icon");
 
-            const img = document.createElement("img");
-            setElementAttribute(img, "src", "/assets/images/icon-correct.svg");
-            setElementAttribute(img, "alt", "checkmark icon");
-            getUserChoiceLabel().appendChild(img);
             userChoiceLabel.classList.add("correct");
-            // console.log(userChoiceLabel);
-            const choiceLabelEls = userChoiceLabel.parentElement.children;
-
-            for (let choiceEl of choiceLabelEls) {
-                choiceEl.disabled = true;
-                choiceEl.style.pointerEvents = "none";
-            }
+            disableChoices(userChoiceLabel.parentElement);
 
             const button = e.target.closest("button");
             changeTextContent(button, "Next Question");
@@ -111,35 +100,24 @@ export const checkAnswer = function (e) {
             button.focus();
             // console.log(e.currentTarget);
             e.currentTarget.removeEventListener("click", checkAnswer, true);
+            e.currentTarget.removeEventListener("keyup", keyboardClick, true);
 
-            button.addEventListener("mouseup", loadNextPage);
+            setupNextButton(button);
 
-            currentScore += 1;
+            incrementCurrentScore();
 
             const currentScoreEl = document.getElementById("current-score");
-            console.log(currentScoreEl, currentScore);
-            changeTextContent(currentScoreEl, currentScore);
+            console.log(currentScoreEl, getCurrentScore());
+            changeTextContent(currentScoreEl, getCurrentScore());
         } else if (answer !== userChoice) {
             console.log("incorrect");
-            const imgIncorrect = document.createElement("img");
-            setElementAttribute(imgIncorrect, "src", "/assets/images/icon-incorrect.svg");
-            setElementAttribute(imgIncorrect, "alt", "wrong icon");
-            userChoiceLabel.appendChild(imgIncorrect);
-
-            const imgCorrect = document.createElement("img");
-            setElementAttribute(imgCorrect, "src", "/assets/images/icon-correct.svg");
-            setElementAttribute(imgCorrect, "alt", "checkmark icon");
-            answerLabel.appendChild(imgCorrect);
+            appendIcon(userChoiceLabel, "/assets/images/icon-incorrect.svg", "wrong icon");
+            appendIcon(answerLabel, "/assets/images/icon-correct.svg", "checkmark icon");
 
 
             userChoiceLabel.classList.add("incorrect");
 
-            const choiceLabelEls = userChoiceLabel.parentElement.children;
-
-            for (let choiceEl of choiceLabelEls) {
-                choiceEl.disabled = true;
-                choiceEl.style.pointerEvents = "none";
-            };
+            disableChoices(userChoiceLabel.parentElement);
 
 
             changeTextContent(e.target, "Next Question");
@@ -151,14 +129,38 @@ export const checkAnswer = function (e) {
             button.style.pointerEvents = "auto";
             button.focus();
             e.currentTarget.removeEventListener("click", checkAnswer, true);
+            e.currentTarget.removeEventListener("keyup", keyboardClick, true);
 
-
-            button.addEventListener("mouseup", loadNextPage);
+            setupNextButton(button);
         }
 
-        questionCount += 1;
+        incrementQuestionCount();
     }
 };
+
+function setupNextButton(button) {
+    button.addEventListener("mouseup", loadNextPage);
+
+    button.addEventListener("keydown", (e) => {
+        if (e.key == " " || e.key == "Enter") {
+            loadNextPage(e);
+        }
+    });
+}
+
+function disableChoices(choiceContainer) {
+    for (let choiceEl of choiceContainer.children) {
+        choiceEl.disabled = true;
+        choiceEl.style.pointerEvents = "none";
+    };
+}
+
+function appendIcon(label, src, alt) {
+    const img = document.createElement("img");
+    setElementAttribute(img, "src", src);
+    setElementAttribute(img, "alt", alt);
+    label.appendChild(img);
+}
 
 const playAgain = function (e) {
     console.log("play again");
@@ -168,8 +170,8 @@ const playAgain = function (e) {
 
     subjectHeader.classList.add("hide");
 
-    currentScore = 0;
-    questionCount = 0;
+    setQuestionCount(0);
+    setCurrentScore(0);
 };
 
 export const quizCompleted = function (e) {
@@ -180,7 +182,7 @@ export const quizCompleted = function (e) {
     const messageEl = clone.getElementById("message");
     let cheerWords = "";
 
-    if (currentScore === 10) {
+    if (getCurrentScore() === 10) {
         cheerWords = "Perfect";
 
         jsConfetti.addConfetti({
@@ -188,9 +190,9 @@ export const quizCompleted = function (e) {
             confettiNumber: 200,
         });
 
-    } else if (currentScore < 10 && currentScore >= 8) {
+    } else if (getCurrentScore() < 10 && getCurrentScore() >= 8) {
         cheerWords = "Great";
-    } else if (currentScore < 8 && currentScore >= 5) {
+    } else if (getCurrentScore() < 8 && getCurrentScore() >= 5) {
         cheerWords = "Good";
     } else {
         cheerWords = "Nice Try";
@@ -205,7 +207,7 @@ export const quizCompleted = function (e) {
     finalScoreContainer.prepend(subjectHeaderclone);
 
     const finalScore = clone.getElementById("final-score");
-    changeTextContent(finalScore, `${currentScore}`);
+    changeTextContent(finalScore, `${getCurrentScore()}`);
 
     const maxFinalScore = clone.getElementById("max-final-score");
     changeTextContent(maxFinalScore, quizzesObj[subjectHeader.dataset.subject].questions.length);
@@ -217,6 +219,19 @@ export const quizCompleted = function (e) {
 
     quiz.replaceChildren(clone);
 };
+
+export function keyboardClick(e) {
+    if (e.key == " " || e.key == "Enter") {
+        if (e.target.tagName == "LABEL") {
+            const input = e.currentTarget.querySelector("input");
+            input.checked = !input.checked;
+            e.target.click();
+        }
+        if (e.target.tagName == "BUTTON") {
+            e.target.click();
+        }
+    }
+}
 
 export const changeTextContent = (element, value) => {
     element.textContent = value;

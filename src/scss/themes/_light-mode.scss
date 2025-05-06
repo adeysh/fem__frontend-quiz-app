@@ -39,6 +39,7 @@
     --submit-btn-text: var(--White);
     --submit-btn-bg: var(--Electric-Violet);
     --submit-btn-hover-bg: var(--purple-dark);
+    --submit-btn-outline: var(--Electric-Violet);
 
     // completion template
     --quiz-complete-header-text: var(--Pickled-Bluewood);
@@ -52,6 +53,7 @@
     --play-again-btn-bg: var(--Electric-Violet);
     --play-again-btn-text: var(--White);
     --play-again-btn-hover-bg: var(--purple-dark);
+    --play-again-btn-outline: var(--purple-outline);
 
     // quiz
     --intro-title-text: var(--Pickled-Bluewood);
@@ -67,6 +69,11 @@
 
     --input-checked-slider-bg: var(--Electric-Violet);
     --input-checked-slider-hover-bg: var(--Catskill-White);
+
+    --toggle-outline: var(--purple-outline);
+
+    // footer
+    --footer-color: var(--Pickled-Bluewood);
 
     // toggle icons
     .sun-dark,

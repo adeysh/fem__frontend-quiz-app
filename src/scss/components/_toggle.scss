@@ -55,6 +55,10 @@
             }
         }
     }
+
+    &:focus-visible {
+        outline: var(--toggle-outline);
+    }
 }
 
 .slider {

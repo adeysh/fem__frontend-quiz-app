@@ -44,4 +44,8 @@
     &:is(:active, :hover, :focus) {
         background-color: var(--play-again-btn-hover-bg);
     }
+
+    &:focus-visible {
+        outline: var(--play-again-btn-outline);
+    }
 }
