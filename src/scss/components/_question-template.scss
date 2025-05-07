@@ -34,7 +34,13 @@
     height: a.rem(16);
     margin-block-end: a.rem(40);
 
+    // for Firefox
+    background-color: var(--progress-bar-bg);
+    border: none;
+    border-radius: a.rem(10);
+    @include a.flexbox($align: center, $justify: center);
 
+    // Chrome & Safari
     &::-webkit-progress-bar {
         background-color: var(--progress-bar-bg);
         border-radius: a.rem(10);
@@ -45,6 +51,19 @@
         background-color: var(--progress-bar-value-bg);
         height: a.rem(8);
         border-radius: inherit;
+    }
+
+    // Firefox
+    &::-moz-progress-bar {
+        background-color: var(--progress-bar-value-bg);
+        height: a.rem(8);
+        border-radius: a.rem(10);
+        margin-block-start: a.rem(4);
+        margin-inline: a.rem(4);
+    }
+
+    &::-moz-progress-inner-element {
+        background-color: black;
     }
 }
 
