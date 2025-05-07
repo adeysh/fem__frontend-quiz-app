@@ -1,5 +1,6 @@
 import { subjectsForm, subjectHeader, subjects, uiState, quizzesObj, toggleSwitchLabel, toggleSwitchInput, quiz } from './constants';
-import { changeTextContent, loadNextPage, setElementAttribute } from "./dom-utils";
+import { loadNextPage } from "./dom-utils";
+import { changeTextContent, setElementAttribute } from "./utils";
 import { fetchData } from './fetchData';
 
 export const setupEventListeners = () => {

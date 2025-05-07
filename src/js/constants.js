@@ -26,6 +26,7 @@ export const subjects = Object.freeze({
     a11y: "Accessibility",
 });
 
+// Question count and Current score - encapsulated with getter/setter
 export const quizState = {
     questionCount: 0,
     currentScore: 0,
