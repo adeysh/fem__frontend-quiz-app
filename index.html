@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    <!-- Quiz header and toggle -->
     <header class="wrapper quiz-header">
         <div class="quiz-header-left">
             <div class=" quiz__subject-heading-container " id="subject-header">
@@ -46,6 +47,7 @@
                     <path fill="#fff"
                         d="M12 1.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5A.75.75 0 0 1 12 1.5Zm0 15a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0-1.5a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm9.75-2.25a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5ZM12 19.5a.75.75 0 0 1 .75.75v1.5a.75.75 0 1 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75Zm-8.25-6.75a.75.75 0 1 0 0-1.5h-1.5a.75.75 0 1 0 0 1.5h1.5Zm.969-8.031a.75.75 0 0 1 1.062 0l1.5 1.5a.751.751 0 0 1-1.062 1.062l-1.5-1.5a.75.75 0 0 1 0-1.062Zm1.062 14.562a.75.75 0 1 1-1.062-1.06l1.5-1.5a.75.75 0 1 1 1.062 1.06l-1.5 1.5Zm13.5-14.562a.75.75 0 0 0-1.062 0l-1.5 1.5a.751.751 0 0 0 1.062 1.062l1.5-1.5a.75.75 0 0 0 0-1.062Zm-1.062 14.562a.75.75 0 0 0 1.062-1.06l-1.5-1.5a.75.75 0 0 0-1.062 1.06l1.5 1.5Z" />
                 </svg>
+                <!-- toggle -->
                 <label tabindex="0" class="switch" id="switch-label">
                     <label for="toggle-switch" class="visually-hidden">Toggle dark mode</label>
                     <input type="checkbox" checked name="switch" id="toggle-switch" title="Toggle dark mode">
@@ -64,7 +66,10 @@
             </div>
         </div>
     </header>
+
+    <!-- Quiz app -->
     <main class="wrapper">
+        <!-- quiz-intro -->
         <div class="quiz quiz--intro-layout" id="quiz">
             <div class="quiz__intro">
                 <h1 class="quiz__intro-title">
@@ -77,6 +82,7 @@
                     Pick a subject to get started.
                 </p>
             </div>
+            <!-- subjects-form -->
             <form class="quiz__subjects-form" id="subjects-form" novalidate>
                 <label tabindex="0" for="html" data-value="html" class="quiz__subject-label">
                     <input type="radio" name="subjects" id="html" class="quiz__subject-input">
@@ -104,6 +110,7 @@
             </form>
         </div>
 
+        <!-- question-template -->
         <template class="quiz__question-template" id="question-template">
             <div class="quiz__question-header">
                 <div class="quiz__info">
@@ -119,7 +126,9 @@
                     What does HTML stand for?
                 </p>
             </div>
+            <!-- progress bar -->
             <progress class="quiz__progress-bar" id="progress" value="1" max="10" role="progressbar"></progress>
+            <!-- choices-form -->
             <form class="quiz__choices-form" novalidate id="choices-form">
                 <label tabindex="0" for="a" class="quiz__choice-label" data-choice="Hyper Trainer Marking Language">
                     <input type="radio" name="choices" id="a">
@@ -149,6 +158,7 @@
             </form>
         </template>
 
+        <!-- completion-template -->
         <template class="quiz__completion-template" id="quiz-complete-template">
             <div class="quiz__complete-header">
                 <h1>
@@ -158,11 +168,6 @@
             </div>
             <div class="quiz__complete-container">
                 <div class="quiz__final-score-container" id="final-score-container">
-                    <!-- <div class="quiz__subject-heading-container">
-                        <img src="/assets//images/icon-html.svg" alt="HTML icon"
-                            class="quiz__subject-img quiz__subject-img--html">
-                        <p class="quiz__subject">HTML</p>
-                    </div> -->
                     <span class="quiz__final-score" id="final-score">2</span>
                     <p class="quiz__total-score">
                         out of
@@ -173,6 +178,7 @@
             </div>
         </template>
     </main>
+
     <!-- footer attribution -->
     <footer class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend
