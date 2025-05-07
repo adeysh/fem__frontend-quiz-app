@@ -52,7 +52,7 @@ export const setupEventListeners = () => {
                 changeTextContent(span, quizObj.title);
 
                 const img = label.querySelector("img");
-                const iconPath = quizObj.icon.replace(".", "");
+                const iconPath = quizObj.icon;
                 setElementAttribute(img, "src", iconPath);
                 setElementAttribute(img, "alt", quizObj.title);
             });
